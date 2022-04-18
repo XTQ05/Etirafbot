@@ -2,9 +2,9 @@
 # Etiraf Club Bot #
 #################################
 # Repo Sahibi - aykhan_s
-# Telegram - t.me/aykhan_s
-# Support - t.me/RoBotlarimTg
-# GitHub - aykhan026
+# Telegram - t.me/XTQ_BAKAVOY
+# Support - t.me/YarasaSupport
+# GitHub - XTQ085
 #################################
 # Bu repo sıfırdan yığılıb
 # Başka github hesabına yükləməy olmaz
@@ -47,11 +47,11 @@ async def start(event):
      await client.send_message(log_qrup, f"ℹ️ **Yeni istifadəçi -** {ad}")
      return await event.reply(f"{ad} {startmesaj}", buttons=(
                       [
-                       Button.inline("💌 Etiraf Yaz", data="etiraf")
+                       Button.inline("💌 Xəbər Yaz", data="etiraf")
                       ],
-                      [Button.url('📜 Etiraf Kanalı', f'https://t.me/{kanal}')],
-                      [Button.url('📣 Support', f'https://t.me/{support}'),
-                       Button.url('👨🏻‍💻 Sahibim', f'https://t.me/{sahib}')]
+                      [Button.url('📜 Xəbər Kanalı', f'https://t.me/Qazi_702')],
+                      [Button.url('📣 Qrup', f'https://t.me/fedmuzakiresi'),
+                       Button.url('👨🏻‍💻 Sahibim', f'https://t.me/Qazi_702')]
                     ),
                     link_preview=False)
 
@@ -66,15 +66,15 @@ async def handler(event):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"{ad} {startmesaj}", buttons=(
                       [
-                       Button.inline("💌 Etiraf Yaz", data="etiraf")
+                       Button.inline("💌 Xəbər Yaz", data="etiraf")
                       ],
-                      [Button.url('📜 Etiraf Kanalı', f'https://t.me/{kanal}')],
-                      [Button.url('📣 Support', f'https://t.me/{support}'),
-                       Button.url('👨🏻‍💻 Sahibim', f'https://t.me/{sahib}')]
+                      [Button.url('📜 Xəbər Kanalı', f'https://t.me/xeberfed')],
+                      [Button.url('📣 Qrup', f'https://t.me/fedmuzakiresi'),
+                       Button.url('👨🏻‍💻 Sahibim', f'https://t.me/Qazi_702')]
                     ),
                     link_preview=False)
 
-# Etiraf Et
+# Xəbər yaz
 @client.on(events.callbackquery.CallbackQuery(data="etiraf"))
 async def handler(event):
     await event.edit(f"{etirafyaz}", buttons=(
@@ -110,7 +110,7 @@ async def anonim(event):
     async for usr in client.iter_participants(event.chat_id):
      gonderen = f"[{usr.first_name}](tg://user?id={usr.id})"
      etiraf_eden = "Anonim"
-     yeni_etiraf = await client.send_message(admin_qrup, f"📣 **Yeni etiraf**\n\n🗣️ **Etiraf Edən -** {etiraf_eden} \n📜 **Etirafı -** {mesaj} \n\n📣 Etirafınızı {botad} -a edin")
+     yeni_etiraf = await client.send_message(admin_qrup, f"📣 **Yeni xəbər**\n\n🗣️ **Xəbəri yazan -** {etiraf_eden} \n📜 **Xəbəri -** {mesaj} \n\n📣 Xəbərinizi {botad} -a edin")
      tesdiq = await yeni_etiraf.reply("Etiraf Təsdiqlənsin ?", buttons=(
                       [
                        Button.inline("✅ Təsdiqlə", data="tesdiq"
@@ -122,7 +122,7 @@ async def anonim(event):
     await client.send_message(log_qrup, f"ℹ️ {gonderen} __Anonim Etiraf Yazdı__")
     await event.edit(f"{gonderildi}", buttons=(
                       [
-                       Button.inline("💌 Yeni Etiraf", data="etiraf"),
+                       Button.inline("💌 Yeni Xəbər", data="etiraf"),
                        Button.inline("🏠 Ana Səhifə", data="start")
                       ]
                     ),
@@ -136,9 +136,9 @@ async def aciq(event):
     global tesdiq
     async for usr in client.iter_participants(event.chat_id):
      etiraf_eden = f"[{usr.first_name}](tg://user?id={usr.id})"
-     sonluq = f"\n💌 Etirafınızı {botad} -a edin"
+     sonluq = f"\n💌 Xəbərinizi {botad} -a edin"
      yeni_etiraf = await client.send_message(admin_qrup, f"📣 **Yeni etiraf**\n\n🗣️ **Etiraf Edən -** {etiraf_eden} \n📜 **Etirafı -** {mesaj} \n{sonluq}")
-     tesdiq = await yeni_etiraf.reply("Etiraf Təsdiqlənsin ?", buttons=(
+     tesdiq = await yeni_etiraf.reply("Xəbər Təsdiqlənsin ?", buttons=(
                       [
                        Button.inline("✅ Təsdiqlə", data="tesdiq"
                        ),
@@ -146,10 +146,10 @@ async def aciq(event):
                       ]
                     ),
                     link_preview=False)
-    await client.send_message(log_qrup, f"ℹ️ {etiraf_eden} __Açıq Etiraf Yazdı__")
+    await client.send_message(log_qrup, f"ℹ️ {etiraf_eden} __Açıq Xəbər Yazdı__")
     await event.edit(f"{gonderildi}", buttons=(
                       [
-                       Button.inline("💌 Yeni Etiraf", data="etiraf"),
+                       Button.inline("💌 Yeni Xəbər", data="etiraf"),
                        Button.inline("🏠 Ana Səhifə", data="start")
                       ]
                     ),
@@ -165,7 +165,7 @@ async def tesdiq(event):
       etiraff = await tesdiq.get_reply_message()
       etiraf = etiraff.text
       await client.send_message(etiraf_qrup, etiraf)
-      await event.edit(f"✅ **Etiraf Təsdiqləndi**")
+      await event.edit(f"✅ **Xəbər Təsdiqləndi**")
       
 @client.on(events.callbackquery.CallbackQuery(data="sil"))
 async def sil(event):
